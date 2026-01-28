@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bimal Shrestha - SEO Content Writer, Copywriter & Scriptwriter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.8s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .hero-pattern {
+            background-color: #667eea;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .section-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#hero" class="text-2xl font-bold gradient-text">Bimal Shrestha</a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-gray-700 hover:text-purple-600 font-medium">About</a>
+                    <a href="#services" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Services</a>
+                    <a href="#portfolio" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Portfolio</a>
+                    <a href="#experience" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Experience</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Skills</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-purple-600 hover:bg-purple-50">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#about" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-purple-50 hover:text-purple-600 font-medium">About</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-purple-50 hover:text-purple-600 font-medium">Services</a>
+                <a href="#portfolio" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-purple-50 hover:text-purple-600 font-medium">Portfolio</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-purple-50 hover:text-purple-600 font-medium">Experience</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-purple-50 hover:text-purple-600 font-medium">Skills</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-purple-50 hover:text-purple-600 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-pattern pt-24 pb-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center text-white fade-in">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4">Bimal Shrestha</h1>
+                <p class="text-2xl md:text-3xl font-light mb-3">SEO Content Writer, Copywriter & Scriptwriter</p>
+                <p class="text-lg md:text-xl font-light mb-8 opacity-90">Crafting Content That Ranks, Engages, and Converts</p>
+                
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <div class="flex items-center bg-white bg-opacity-20 backdrop-blur-sm rounded-lg px-4 py-2">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                        <span class="text-sm">+977 9845047704</span>
+                    </div>
+                    <div class="flex items-center bg-white bg-opacity-20 backdrop-blur-sm rounded-lg px-4 py-2">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        <span class="text-sm">bimalshrestha2004@gmail.com</span>
+                    </div>
+                    <div class="flex items-center bg-white bg-opacity-20 backdrop-blur-sm rounded-lg px-4 py-2">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-sm">Kalopul, Kathmandu</span>
+                    </div>
+                </div>
+                
+                <a href="#contact" class="inline-block bg-white text-purple-600 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                    Let's Collaborate
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 bg-white section-reveal">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-6 gradient-text">About Me</h2>
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                    SEO Content Writer with proven expertise in driving traffic, engagement, and conversions. Skilled in keyword research, content optimization, and SEO best practices, creating engaging, SEO-friendly content that improves rankings, click-through rates, and overall online presence.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    With over 5 years of experience in Nepal's digital landscape, I bridge the gap between technical SEO requirements and compelling storytelling that resonates with audiences.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 bg-gray-50 section-reveal">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4 gradient-text">My Services</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                Comprehensive digital content solutions tailored to boost your online visibility and engagement
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="text-4xl mb-4">✍️</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">SEO Content Writing</h3>
+                    <p class="text-gray-600">Keyword-optimized articles, blogs, and web content that rank on Page 1 and drive qualified traffic</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="text-4xl mb-4">🔧</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Technical SEO</h3>
+                    <p class="text-gray-600">Meta tags, internal linking architecture, site structure optimization, and crawlability improvements</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="text-4xl mb-4">📈</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Conversion Copywriting</h3>
+                    <p class="text-gray-600">High-impact ad copies, landing pages, and product descriptions that boost CTR and conversions</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Digital Strategy</h3>
+                    <p class="text-gray-600">Integrated campaigns spanning SEO, social media, and content marketing for holistic growth</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="text-4xl mb-4">💰</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">SEM/PPC Support</h3>
+                    <p class="text-gray-600">Ad copy creation, landing page optimization, and keyword research to maximize paid campaign ROI</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="text-4xl mb-4">🎬</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Scriptwriting</h3>
+                    <p class="text-gray-600">Engaging scripts for TV, radio, and digital platforms that strengthen brand identity and recall</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 px-4 bg-white section-reveal">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Portfolio Highlights</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                A selection of my best work across content writing, copywriting, and scriptwriting
+            </p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Blog Content -->
+                <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-purple-900">📝 Blog Content</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4 shadow hover:shadow-md transition">
+                            <h4 class="font-semibold text-gray-800 mb-2">How to Resolve the Call Drop Issue? A Complete Guide</h4>
+                            <p class="text-sm text-gray-600">SEO-optimized blog content driving organic traffic and engagement</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 shadow hover:shadow-md transition">
+                            <h4 class="font-semibold text-gray-800 mb-2">How Cloud Solutions Boost Customer Engagement in E-commerce</h4>
+                            <p class="text-sm text-gray-600">SEO-optimized blog content driving organic traffic and engagement</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 shadow hover:shadow-md transition">
+                            <h4 class="font-semibold text-gray-800 mb-2">Call Recording to Boost Your Customer Service Standards</h4>
+                            <p class="text-sm text-gray-600">SEO-optimized blog content driving organic traffic and engagement</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 shadow hover:shadow-md transition">
+                            <h4 class="font-semibold text-gray-800 mb-2">Grow Your Business with the 557 Area Code Phone Number!</h4>
+                            <p class="text-sm text-gray-600">SEO-optimized blog content driving organic traffic and engagement</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Copywriting & Scripts -->
+                <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-pink-900">🎨 Copywriting & Scripts</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4 shadow hover:shadow-md transition">
+                            <h4 class="font-semibold text-gray-800 mb-2">Surya Joti Life Insurance</h4>
+                            <p class="text-sm text-gray-600">Banner & website copy for leading insurance provider</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 shadow hover:shadow-md transition">
+                            <h4 class="font-semibold text-gray-800 mb-2">Saurya Cement</h4>
+                            <p class="text-sm text-gray-600">Jingle & ad copy for construction brand</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 shadow hover:shadow-md transition">
+                            <h4 class="font-semibold text-gray-800 mb-2">Better Home Appliances</h4>
+                            <p class="text-sm text-gray-600">Jingles & web copy for home appliance retailer</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 shadow hover:shadow-md transition">
+                            <h4 class="font-semibold text-gray-800 mb-2">HiFLife</h4>
+                            <p class="text-sm text-gray-600">Scripts & ad copy for lifestyle brand</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-4 bg-gray-50 section-reveal">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Professional Experience</h2>
+            
+            <div class="space-y-8">
+                <!-- ANS CREATION -->
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800">ANS CREATION</h3>
+                            <p class="text-purple-600 font-semibold text-lg">Copywriter and Scriptwriter</p>
+                        </div>
+                        <span class="bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-semibold mt-2 md:mt-0 inline-block">Present</span>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2 mt-1">✓</span>
+                            <span>Created impactful ad copies, scripts, and jingles for leading Nepali brands</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2 mt-1">✓</span>
+                            <span>Partnered with creative teams to develop innovative campaigns that strengthened brand identity and market presence</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2 mt-1">✓</span>
+                            <span>Produced engaging content tailored for television, print, and digital platforms</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Codavatar -->
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800">Codavatar</h3>
+                            <p class="text-purple-600 font-semibold text-lg">SEO Content Writer</p>
+                            <p class="text-gray-500 text-sm">Software Engineering Company</p>
+                        </div>
+                        <span class="bg-purple-100 text-purple-800 px-4 py-1 rounded-full text-sm font-semibold mt-2 md:mt-0 inline-block">FEB - AUG 2025</span>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2 mt-1">✓</span>
+                            <span>Working with the wider and visionary team and professionals</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2 mt-1">✓</span>
+                            <span>Develop SEO-optimized content for Dialaxy</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2 mt-1">✓</span>
+                            <span>Created compelling meta descriptions and title tags to increase click-through rates</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2 mt-1">✓</span>
+                            <span>Proficiency in identifying relevant keywords and incorporating them naturally into engaging content</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2 mt-1">✓</span>
+                            <span>Improve internal linking and site structure for better crawlability and UX</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Nepalbytes -->
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800">Nepalbytes</h3>
+                            <p class="text-purple-600 font-semibold text-lg">Digital Marketing & Content Writer</p>
+                        </div>
+                        <span class="bg-purple-100 text-purple-800 px-4 py-1 rounded-full text-sm font-semibold mt-2 md:mt-0 inline-block">JAN 2023 - DEC 2024</span>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2 mt-1">✓</span>
+                            <span>Create SEO-optimized articles, blogs, and web content to drive organic traffic</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2 mt-1">✓</span>
+                            <span>Plan and execute digital marketing strategies, including social media and SEO campaigns</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2 mt-1">✓</span>
+                            <span>Use analytics and SEO tools to track performance and improve content visibility</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Biguls Khabar -->
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800">Biguls Khabar</h3>
+                            <p class="text-purple-600 font-semibold text-lg">Digital Marketing & Content Writer</p>
+                        </div>
+                        <span class="bg-purple-100 text-purple-800 px-4 py-1 rounded-full text-sm font-semibold mt-2 md:mt-0 inline-block">FEB 2020 - NOV 2022</span>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2 mt-1">✓</span>
+                            <span>Wrote and edited SEO-optimized news articles on politics, business, and social affairs, ensuring accuracy and credibility under tight deadlines</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2 mt-1">✓</span>
+                            <span>Conducted interviews, research, and fact-checking to deliver balanced, high-quality reporting that met editorial standards</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-600 mr-2 mt-1">✓</span>
+                            <span>Applied SEO strategies and digital tools to increase article visibility, audience engagement, and overall reach</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 bg-white section-reveal">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Skills & Expertise</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Core Skills -->
+                <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-purple-900">Core Skills</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge bg-white px-4 py-2 rounded-full text-purple-700 font-medium shadow-sm">Communication</span>
+                        <span class="skill-badge bg-white px-4 py-2 rounded-full text-purple-700 font-medium shadow-sm">SEO Tools</span>
+                        <span class="skill-badge bg-white px-4 py-2 rounded-full text-purple-700 font-medium shadow-sm">Content Writer</span>
+                        <span class="skill-badge bg-white px-4 py-2 rounded-full text-purple-700 font-medium shadow-sm">Copywriter</span>
+                        <span class="skill-badge bg-white px-4 py-2 rounded-full text-purple-700 font-medium shadow-sm">Digital Marketing</span>
+                        <span class="skill-badge bg-white px-4 py-2 rounded-full text-purple-700 font-medium shadow-sm">Teamwork</span>
+                        <span class="skill-badge bg-white px-4 py-2 rounded-full text-purple-700 font-medium shadow-sm">Creativity</span>
+                        <span class="skill-badge bg-white px-4 py-2 rounded-full text-purple-700 font-medium shadow-sm">Time Management</span>
+                        <span class="skill-badge bg-white px-4 py-2 rounded-full text-purple-700 font-medium shadow-sm">Adaptability</span>
+                        <span class="skill-badge bg-white px-4 py-2 rounded-full text-purple-700 font-medium shadow-sm">Leadership</span>
+                    </div>
+                </div>
+                
+                <!-- Languages -->
+                <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-pink-900">Languages</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4 shadow-sm">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold text-gray-800">English</span>
+                                <span class="text-sm text-gray-600">Professional</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-pink-500 to-rose-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 shadow-sm">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold text-gray-800">Nepali</span>
+                                <span class="text-sm text-gray-600">Native</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-pink-500 to-rose-500 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 shadow-sm">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold text-gray-800">Hindi</span>
+                                <span class="text-sm text-gray-600">Conversational</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-pink-500 to-rose-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 gradient-bg section-reveal">
+        <div class="max-w-4xl mx-auto text-center text-white">
+            <h2 class="text-4xl font-bold mb-6">Let's Collaborate</h2>
+            <p class="text-xl mb-12 opacity-90">
+                Ready to elevate your content strategy and digital presence? I craft content that doesn't just rank—it resonates and converts.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-6">
+                    <svg class="w-8 h-8 mx-auto mb-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                    </svg>
+                    <h3 class="font-semibold mb-2">Phone</h3>
+                    <p class="text-sm">+977 9845047704</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-6">
+                    <svg class="w-8 h-8 mx-auto mb-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                    </svg>
+                    <h3 class="font-semibold mb-2">Email</h3>
+                    <p class="text-sm break-all">bimalshrestha2004@gmail.com</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-6">
+                    <svg class="w-8 h-8 mx-auto mb-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                    </svg>
+                    <h3 class="font-semibold mb-2">Location</h3>
+                    <p class="text-sm">Kalopul, Kathmandu, Nepal</p>
+                </div>
+            </div>
+            
+            <a href="mailto:bimalshrestha2004@gmail.com" class="inline-block bg-white text-purple-600 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                Send Me a Message
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="mb-2">&copy; 2026 Bimal Shrestha. All rights reserved.</p>
+            <p class="text-gray-400 text-sm">Crafting content that ranks, engages, and converts</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Active nav link highlighting
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.section-reveal').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
