@@ -24,9 +24,16 @@
       --max-w: 1160px;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
 
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { 
+      scroll-behavior: smooth; 
+      font-size: 16px; 
+    }
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -48,19 +55,34 @@
     }
 
     /* ── TYPOGRAPHY ── */
-    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
-    .mono { font-family: 'DM Mono', monospace; }
+    h1, h2, h3, h4 { 
+      font-family: 'Playfair Display', serif; 
+      line-height: 1.2; 
+    }
+    .mono { 
+      font-family: 'DM Mono', monospace; 
+    }
 
     /* ── LAYOUT ── */
-    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(20px, 5vw, 60px); }
-    section { padding: var(--section-pad) 0; }
+    .container { 
+      max-width: var(--max-w); 
+      margin: 0 auto; 
+      padding: 0 clamp(20px, 5vw, 60px); 
+      width: 100%;
+    }
+    section { 
+      padding: var(--section-pad) 0; 
+      width: 100%;
+    }
 
     /* ── NAV ── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0; 
+      left: 0; 
+      right: 0;
       height: var(--nav-h);
-      background: rgba(250,248,243,0.92);
+      background: rgba(250, 248, 243, 0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       z-index: 1000;
@@ -75,13 +97,15 @@
     }
     .nav-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--ink);
       text-decoration: none;
       letter-spacing: -0.02em;
     }
-    .nav-logo span { color: var(--gold); }
+    .nav-logo span { 
+      color: var(--gold); 
+    }
     .nav-links {
       display: flex;
       gap: clamp(16px, 3vw, 36px);
@@ -96,7 +120,11 @@
       text-transform: uppercase;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover, 
+    .nav-links a:focus { 
+      color: var(--ink); 
+      outline: none;
+    }
 
     /* hamburger */
     .hamburger {
@@ -116,15 +144,22 @@
       transition: all 0.3s;
       border-radius: 2px;
     }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .hamburger.open span:nth-child(1) { 
+      transform: translateY(7px) rotate(45deg); 
+    }
+    .hamburger.open span:nth-child(2) { 
+      opacity: 0; 
+    }
+    .hamburger.open span:nth-child(3) { 
+      transform: translateY(-7px) rotate(-45deg); 
+    }
 
     .mobile-menu {
       display: none;
       position: fixed;
       top: var(--nav-h);
-      left: 0; right: 0;
+      left: 0; 
+      right: 0;
       background: var(--paper);
       border-bottom: 1px solid var(--border);
       padding: 20px 30px 30px;
@@ -132,7 +167,9 @@
       flex-direction: column;
       gap: 4px;
     }
-    .mobile-menu.open { display: flex; }
+    .mobile-menu.open { 
+      display: flex; 
+    }
     .mobile-menu a {
       font-size: 1.1rem;
       font-weight: 500;
@@ -142,7 +179,14 @@
       border-bottom: 1px solid var(--border);
       letter-spacing: 0.03em;
     }
-    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover,
+    .mobile-menu a:focus {
+      color: var(--gold);
+      outline: none;
+    }
+    .mobile-menu a:last-child { 
+      border-bottom: none; 
+    }
 
     /* ── HERO ── */
     #hero {
@@ -159,6 +203,7 @@
       background:
         radial-gradient(ellipse 60% 50% at 80% 30%, rgba(201,168,76,0.12) 0%, transparent 70%),
         radial-gradient(ellipse 40% 60% at 10% 80%, rgba(184,76,42,0.06) 0%, transparent 70%);
+      pointer-events: none;
     }
     .hero-content {
       position: relative;
@@ -224,12 +269,20 @@
       transition: all 0.2s;
       font-weight: 500;
     }
-    .contact-pill:hover {
+    .contact-pill:hover,
+    .contact-pill:focus {
       background: var(--ink);
       color: var(--paper);
       border-color: var(--ink);
+      outline: none;
     }
-    .contact-pill svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .contact-pill svg { 
+      width: 14px; 
+      height: 14px; 
+      flex-shrink: 0; 
+      fill: none;
+      stroke: currentColor;
+    }
     .hero-cta {
       display: inline-flex;
       align-items: center;
@@ -243,8 +296,16 @@
       font-size: 0.9rem;
       letter-spacing: 0.03em;
       transition: all 0.25s;
+      border: none;
+      cursor: pointer;
     }
-    .hero-cta:hover { background: var(--gold); color: var(--ink); transform: translateY(-2px); }
+    .hero-cta:hover,
+    .hero-cta:focus {
+      background: var(--gold); 
+      color: var(--ink); 
+      transform: translateY(-2px);
+      outline: none;
+    }
     .hero-visual {
       text-align: right;
     }
@@ -259,14 +320,17 @@
       border: 2px solid var(--gold);
       background: var(--white);
       padding: 20px;
-      position: relative;
       animation: spin-slow 20s linear infinite;
     }
     @keyframes spin-slow {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
-    .hero-badge-inner { animation: spin-slow 20s linear infinite reverse; text-align: center; }
+    .hero-badge-inner { 
+      animation: spin-slow 20s linear infinite reverse; 
+      text-align: center; 
+      width: 100%;
+    }
     .hero-badge-num {
       font-family: 'Playfair Display', serif;
       font-size: 2.6rem;
@@ -307,6 +371,10 @@
       letter-spacing: -0.025em;
       margin-bottom: 16px;
     }
+    .section-title em {
+      color: var(--gold);
+      font-style: italic;
+    }
     .section-desc {
       font-size: 1rem;
       color: var(--muted);
@@ -323,7 +391,9 @@
     }
 
     /* ── ABOUT ── */
-    #about { background: var(--cream); }
+    #about { 
+      background: var(--cream); 
+    }
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -345,10 +415,18 @@
       padding: 32px 28px;
       border: 1px solid var(--border);
     }
-    .stat-box:nth-child(1) { border-radius: 12px 0 0 0; }
-    .stat-box:nth-child(2) { border-radius: 0 12px 0 0; }
-    .stat-box:nth-child(3) { border-radius: 0 0 0 12px; }
-    .stat-box:nth-child(4) { border-radius: 0 0 12px 0; }
+    .stat-box:nth-child(1) { 
+      border-radius: 12px 0 0 0; 
+    }
+    .stat-box:nth-child(2) { 
+      border-radius: 0 12px 0 0; 
+    }
+    .stat-box:nth-child(3) { 
+      border-radius: 0 0 0 12px; 
+    }
+    .stat-box:nth-child(4) { 
+      border-radius: 0 0 12px 0; 
+    }
     .stat-num {
       font-family: 'Playfair Display', serif;
       font-size: 2.8rem;
@@ -357,8 +435,14 @@
       line-height: 1;
       margin-bottom: 6px;
     }
-    .stat-num span { color: var(--gold); }
-    .stat-label { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+    .stat-num span { 
+      color: var(--gold); 
+    }
+    .stat-label { 
+      font-size: 0.85rem; 
+      color: var(--muted); 
+      font-weight: 500; 
+    }
 
     /* ── SERVICES ── */
     .services-grid {
@@ -377,13 +461,24 @@
     .service-card::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0;
-      width: 0; height: 2px;
+      bottom: 0; 
+      left: 0;
+      width: 0; 
+      height: 2px;
       background: var(--gold);
       transition: width 0.35s;
     }
-    .service-card:hover { background: var(--white); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
-    .service-card:hover::after { width: 100%; }
+    .service-card:hover,
+    .service-card:focus-within {
+      background: var(--white); 
+      transform: translateY(-4px); 
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      outline: none;
+    }
+    .service-card:hover::after,
+    .service-card:focus-within::after { 
+      width: 100%; 
+    }
     .service-icon {
       font-size: 2rem;
       margin-bottom: 20px;
@@ -394,10 +489,15 @@
       margin-bottom: 12px;
       font-weight: 700;
     }
-    .service-card p { font-size: 0.9rem; color: var(--muted); }
+    .service-card p { 
+      font-size: 0.9rem; 
+      color: var(--muted); 
+    }
 
     /* ── PORTFOLIO ── */
-    #portfolio { background: var(--cream); }
+    #portfolio { 
+      background: var(--cream); 
+    }
     .portfolio-tabs {
       display: flex;
       gap: 4px;
@@ -416,10 +516,13 @@
       font-family: 'DM Sans', sans-serif;
       color: var(--muted);
     }
-    .tab-btn.active, .tab-btn:hover {
+    .tab-btn.active, 
+    .tab-btn:hover,
+    .tab-btn:focus {
       background: var(--ink);
       color: var(--paper);
       border-color: var(--ink);
+      outline: none;
     }
     .portfolio-grid {
       display: grid;
@@ -433,7 +536,12 @@
       padding: 28px 24px;
       transition: all 0.25s;
     }
-    .portfolio-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
+    .portfolio-card:hover,
+    .portfolio-card:focus-within { 
+      transform: translateY(-4px); 
+      box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+      outline: none;
+    }
     .portfolio-tag {
       font-family: 'DM Mono', monospace;
       font-size: 0.72rem;
@@ -442,21 +550,37 @@
       text-transform: uppercase;
       margin-bottom: 12px;
     }
-    .portfolio-card h3 { font-size: 1rem; margin-bottom: 10px; font-weight: 700; line-height: 1.4; }
-    .portfolio-card p { font-size: 0.87rem; color: var(--muted); }
+    .portfolio-card h3 { 
+      font-size: 1rem; 
+      margin-bottom: 10px; 
+      font-weight: 700; 
+      line-height: 1.4; 
+    }
+    .portfolio-card p { 
+      font-size: 0.87rem; 
+      color: var(--muted); 
+    }
 
     /* ── EXPERIENCE ── */
-    .timeline { position: relative; padding-left: 32px; }
+    .timeline { 
+      position: relative; 
+      padding-left: 32px; 
+    }
     .timeline::before {
       content: '';
       position: absolute;
-      left: 0; top: 8px; bottom: 0;
+      left: 0; 
+      top: 8px; 
+      bottom: 0;
       width: 1px;
       background: var(--border);
     }
     .timeline-item {
       position: relative;
       margin-bottom: 52px;
+    }
+    .timeline-item:last-child {
+      margin-bottom: 0;
     }
     .timeline-item::before {
       content: '';
@@ -518,7 +642,9 @@
     }
 
     /* ── SKILLS ── */
-    #skills { background: var(--cream); }
+    #skills { 
+      background: var(--cream); 
+    }
     .skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -547,10 +673,28 @@
       background: var(--white);
       transition: all 0.2s;
     }
-    .skill-tag:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-    .lang-list { display: flex; flex-direction: column; gap: 16px; }
-    .lang-item { display: flex; align-items: center; justify-content: space-between; }
-    .lang-name { font-weight: 500; font-size: 0.95rem; }
+    .skill-tag:hover,
+    .skill-tag:focus { 
+      background: var(--ink); 
+      color: var(--paper); 
+      border-color: var(--ink);
+      outline: none;
+    }
+    .lang-list { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 16px; 
+    }
+    .lang-item { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+    }
+    .lang-name { 
+      font-weight: 500; 
+      font-size: 0.95rem; 
+      min-width: 80px;
+    }
     .lang-bar {
       flex: 1;
       height: 3px;
@@ -564,10 +708,18 @@
       background: linear-gradient(to right, var(--gold), var(--rust));
       border-radius: 2px;
     }
-    .lang-level { font-size: 0.78rem; color: var(--muted); font-family: 'DM Mono', monospace; }
+    .lang-level { 
+      font-size: 0.78rem; 
+      color: var(--muted); 
+      font-family: 'DM Mono', monospace;
+      min-width: 90px;
+      text-align: right;
+    }
 
     /* ── BLOG ── */
-    #blog { background: var(--paper); }
+    #blog { 
+      background: var(--paper); 
+    }
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -581,8 +733,14 @@
       transition: all 0.3s;
       display: flex;
       flex-direction: column;
+      cursor: pointer;
     }
-    .blog-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.1); }
+    .blog-card:hover,
+    .blog-card:focus-within { 
+      transform: translateY(-6px); 
+      box-shadow: 0 24px 60px rgba(0,0,0,0.1);
+      outline: none;
+    }
     .blog-card-header {
       padding: 28px 28px 0;
     }
@@ -599,11 +757,16 @@
       font-weight: 700;
       line-height: 1.4;
       margin-bottom: 14px;
-      cursor: pointer;
       transition: color 0.2s;
     }
-    .blog-card h3:hover { color: var(--gold); }
-    .blog-card-body { padding: 0 28px 24px; flex: 1; }
+    .blog-card h3:hover,
+    .blog-card h3:focus { 
+      color: var(--gold); 
+    }
+    .blog-card-body { 
+      padding: 0 28px 24px; 
+      flex: 1; 
+    }
     .blog-excerpt {
       font-size: 0.88rem;
       color: var(--muted);
@@ -623,14 +786,18 @@
       color: var(--ink);
       font-weight: 600;
       font-size: 0.83rem;
-      cursor: pointer;
       display: flex;
       align-items: center;
       gap: 4px;
       text-decoration: none;
       transition: gap 0.2s;
     }
-    .blog-read-more:hover { gap: 8px; color: var(--gold); }
+    .blog-read-more:hover,
+    .blog-read-more:focus { 
+      gap: 8px; 
+      color: var(--gold); 
+      outline: none;
+    }
 
     /* Blog Modal */
     .blog-modal-overlay {
@@ -644,7 +811,9 @@
       padding: 40px 20px;
       overflow-y: auto;
     }
-    .blog-modal-overlay.open { display: flex; }
+    .blog-modal-overlay.open { 
+      display: flex; 
+    }
     .blog-modal {
       background: var(--paper);
       max-width: 760px;
@@ -661,26 +830,36 @@
     }
     .blog-modal-close {
       position: absolute;
-      top: 20px; right: 20px;
+      top: 20px; 
+      right: 20px;
       background: var(--ink);
       color: var(--paper);
       border: none;
       border-radius: 50%;
-      width: 36px; height: 36px;
+      width: 36px; 
+      height: 36px;
       font-size: 1.2rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 1;
-      line-height: 1;
+      z-index: 10;
+      transition: all 0.2s;
+    }
+    .blog-modal-close:hover,
+    .blog-modal-close:focus {
+      background: var(--gold);
+      color: var(--ink);
+      outline: none;
     }
     .blog-modal-header {
       background: var(--cream);
       padding: 48px 48px 32px;
       border-bottom: 1px solid var(--border);
     }
-    .blog-modal-header .blog-cat { margin-bottom: 16px; }
+    .blog-modal-header .blog-cat { 
+      margin-bottom: 16px; 
+    }
     .blog-modal-header h2 {
       font-size: clamp(1.4rem, 3.5vw, 2rem);
       font-weight: 700;
@@ -704,6 +883,7 @@
     .blog-modal-body h3 {
       font-size: 1.2rem;
       margin: 30px 0 12px;
+      font-family: 'Playfair Display', serif;
     }
     .blog-modal-body ul {
       padding-left: 24px;
@@ -719,18 +899,33 @@
     }
 
     /* ── CONTACT ── */
-    #contact { background: var(--ink); color: var(--paper); }
-    #contact .section-tag { color: var(--gold-light); }
-    #contact .section-tag::before { background: var(--gold-light); }
-    #contact .section-title { color: var(--paper); }
-    #contact .section-desc { color: rgba(250,248,243,0.6); }
+    #contact { 
+      background: var(--ink); 
+      color: var(--paper); 
+    }
+    #contact .section-tag { 
+      color: var(--gold-light); 
+    }
+    #contact .section-tag::before { 
+      background: var(--gold-light); 
+    }
+    #contact .section-title { 
+      color: var(--paper); 
+    }
+    #contact .section-desc { 
+      color: rgba(250,248,243,0.6); 
+    }
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
       align-items: start;
     }
-    .contact-items { display: flex; flex-direction: column; gap: 24px; }
+    .contact-items { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 24px; 
+    }
     .contact-item {
       display: flex;
       align-items: flex-start;
@@ -742,13 +937,16 @@
       color: inherit;
       transition: all 0.25s;
     }
-    .contact-item:hover {
+    .contact-item:hover,
+    .contact-item:focus {
       background: rgba(255,255,255,0.05);
       border-color: var(--gold);
       transform: translateX(6px);
+      outline: none;
     }
     .contact-icon {
-      width: 44px; height: 44px;
+      width: 44px; 
+      height: 44px;
       background: rgba(201,168,76,0.15);
       border: 1px solid rgba(201,168,76,0.3);
       border-radius: 8px;
@@ -757,7 +955,13 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .contact-icon svg { width: 18px; height: 18px; color: var(--gold); }
+    .contact-icon svg { 
+      width: 18px; 
+      height: 18px; 
+      color: var(--gold);
+      fill: none;
+      stroke: currentColor;
+    }
     .contact-item-label {
       font-family: 'DM Mono', monospace;
       font-size: 0.72rem;
@@ -766,7 +970,11 @@
       color: rgba(250,248,243,0.4);
       margin-bottom: 4px;
     }
-    .contact-item-value { font-size: 1rem; font-weight: 500; color: var(--paper); }
+    .contact-item-value { 
+      font-size: 1rem; 
+      font-weight: 500; 
+      color: var(--paper); 
+    }
     .contact-cta-box {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.1);
@@ -777,6 +985,7 @@
       font-size: 1.6rem;
       margin-bottom: 14px;
       color: var(--paper);
+      font-family: 'Playfair Display', serif;
     }
     .contact-cta-box p {
       color: rgba(250,248,243,0.6);
@@ -795,8 +1004,15 @@
       font-weight: 700;
       font-size: 0.9rem;
       transition: all 0.2s;
+      border: none;
+      cursor: pointer;
     }
-    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-gold:hover,
+    .btn-gold:focus { 
+      background: var(--gold-light); 
+      transform: translateY(-2px);
+      outline: none;
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -806,7 +1022,9 @@
       padding: 28px 20px;
       font-size: 0.82rem;
     }
-    footer span { color: var(--gold); }
+    footer span { 
+      color: var(--gold); 
+    }
 
     /* ── SCROLL ANIMATIONS ── */
     .fade-up {
@@ -818,685 +1036,100 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .fade-up-d1 { transition-delay: 0.1s; }
-    .fade-up-d2 { transition-delay: 0.2s; }
-    .fade-up-d3 { transition-delay: 0.3s; }
+    .fade-up-d1 { 
+      transition-delay: 0.1s; 
+    }
+    .fade-up-d2 { 
+      transition-delay: 0.2s; 
+    }
+    .fade-up-d3 { 
+      transition-delay: 0.3s; 
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .hero-content { grid-template-columns: 1fr; }
-      .hero-visual { display: none; }
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr; }
+      .nav-links { 
+        display: none; 
+      }
+      .hamburger { 
+        display: flex; 
+      }
+      .hero-content { 
+        grid-template-columns: 1fr; 
+      }
+      .hero-visual { 
+        display: none; 
+      }
+      .about-grid { 
+        grid-template-columns: 1fr; 
+        gap: 40px; 
+      }
+      .contact-grid { 
+        grid-template-columns: 1fr; 
+      }
+      .skills-grid { 
+        grid-template-columns: 1fr; 
+      }
     }
     @media (max-width: 600px) {
-      :root { --section-pad: 50px; }
-      .about-stats { grid-template-columns: 1fr 1fr; }
-      .stat-box:nth-child(n) { border-radius: 0; }
-      .blog-modal-header, .blog-modal-body { padding: 28px 24px; }
+      :root { 
+        --section-pad: 50px; 
+      }
+      .about-stats { 
+        grid-template-columns: 1fr 1fr; 
+      }
+      .stat-box:nth-child(n) { 
+        border-radius: 0; 
+      }
+      .blog-modal-header, 
+      .blog-modal-body { 
+        padding: 28px 24px; 
+      }
+      .hero-contacts {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .contact-pill {
+        width: 100%;
+      }
     }
     @media (max-width: 420px) {
-      .about-stats { grid-template-columns: 1fr; }
-      .timeline { padding-left: 20px; }
-      .timeline-item::before { left: -26px; }
-    }
-  </style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <div class="container">
-    <a href="#hero" class="nav-logo">Bimal<span>.</span></a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="closeMobileMenu()">About</a>
-  <a href="#services" onclick="closeMobileMenu()">Services</a>
-  <a href="#portfolio" onclick="closeMobileMenu()">Portfolio</a>
-  <a href="#experience" onclick="closeMobileMenu()">Experience</a>
-  <a href="#skills" onclick="closeMobileMenu()">Skills</a>
-  <a href="#blog" onclick="closeMobileMenu()">Blog</a>
-  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-</div>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-left">
-        <div class="hero-eyebrow">Available for freelance</div>
-        <h1 class="hero-name">Bimal<br/><em>Shrestha</em></h1>
-        <p class="hero-tagline">SEO Content Writer, Copywriter &amp; Scriptwriter — crafting content that ranks, engages, and converts.</p>
-        <div class="hero-contacts">
-          <a href="tel:+9779845047704" class="contact-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 0 0 .18 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            +977 98450 47704
-          </a>
-          <a href="mailto:bimalshrestha2004@gmail.com" class="contact-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            bimalshrestha2004@gmail.com
-          </a>
-          <a href="https://maps.google.com/?q=Kalopul,Kathmandu" target="_blank" class="contact-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Kalopul, Kathmandu
-          </a>
-        </div>
-        <a href="#contact" class="hero-cta">Let's Collaborate →</a>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-badge">
-          <div class="hero-badge-inner">
-            <div class="hero-badge-num">5+</div>
-            <div class="hero-badge-label">Years of<br>Experience</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-text fade-up">
-        <div class="section-tag">Who I Am</div>
-        <h2 class="section-title">Storyteller by craft,<br/><em>strategist by nature</em></h2>
-        <p>I'm an SEO Content Writer with proven expertise in driving traffic, engagement, and conversions. Skilled in keyword research, content optimization, and SEO best practices, I create engaging, SEO-friendly content that improves rankings, click-through rates, and overall online presence.</p>
-        <p>With over 5 years of experience in Nepal's digital landscape, I bridge the gap between technical SEO requirements and compelling storytelling that resonates with audiences across industries.</p>
-      </div>
-      <div class="about-stats fade-up fade-up-d2">
-        <div class="stat-box">
-          <div class="stat-num">5<span>+</span></div>
-          <div class="stat-label">Years Experience</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">50<span>+</span></div>
-          <div class="stat-label">Clients Served</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">3<span>x</span></div>
-          <div class="stat-label">Avg. Traffic Growth</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">6<span></span></div>
-          <div class="stat-label">Service Areas</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="container">
-    <div class="section-tag fade-up">What I Offer</div>
-    <h2 class="section-title fade-up">Services built for<br/><em>real results</em></h2>
-    <p class="section-desc fade-up">Comprehensive digital content solutions tailored to boost your online visibility and engagement.</p>
-    <div class="services-grid">
-      <div class="service-card fade-up fade-up-d1">
-        <span class="service-icon">✍️</span>
-        <h3>SEO Content Writing</h3>
-        <p>Keyword-optimized articles, blogs, and web content that rank on Page 1 and drive qualified organic traffic to your business.</p>
-      </div>
-      <div class="service-card fade-up fade-up-d2">
-        <span class="service-icon">🔧</span>
-        <h3>Technical SEO</h3>
-        <p>Meta tags, internal linking architecture, site structure optimization, and crawlability improvements for better indexing.</p>
-      </div>
-      <div class="service-card fade-up fade-up-d3">
-        <span class="service-icon">📈</span>
-        <h3>Conversion Copywriting</h3>
-        <p>High-impact ad copies, landing pages, and product descriptions that boost CTR and turn visitors into customers.</p>
-      </div>
-      <div class="service-card fade-up fade-up-d1">
-        <span class="service-icon">🎯</span>
-        <h3>Digital Strategy</h3>
-        <p>Integrated campaigns spanning SEO, social media, and content marketing for holistic, sustainable growth.</p>
-      </div>
-      <div class="service-card fade-up fade-up-d2">
-        <span class="service-icon">💰</span>
-        <h3>SEM / PPC Support</h3>
-        <p>Ad copy creation, landing page optimization, and keyword research to maximize your paid campaign ROI.</p>
-      </div>
-      <div class="service-card fade-up fade-up-d3">
-        <span class="service-icon">🎬</span>
-        <h3>Scriptwriting</h3>
-        <p>Engaging scripts for TV, radio, and digital platforms that strengthen brand identity and audience recall.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PORTFOLIO -->
-<section id="portfolio">
-  <div class="container">
-    <div class="section-tag fade-up">My Work</div>
-    <h2 class="section-title fade-up">Portfolio <em>highlights</em></h2>
-    <p class="section-desc fade-up">A selection of my best work across content writing, copywriting, and scriptwriting.</p>
-    <div class="portfolio-tabs fade-up">
-      <button class="tab-btn active" onclick="filterPortfolio('all', this)">All Work</button>
-      <button class="tab-btn" onclick="filterPortfolio('blog', this)">Blog Content</button>
-      <button class="tab-btn" onclick="filterPortfolio('copy', this)">Copywriting</button>
-      <button class="tab-btn" onclick="filterPortfolio('script', this)">Scriptwriting</button>
-    </div>
-    <div class="portfolio-grid" id="portfolioGrid">
-      <div class="portfolio-card fade-up" data-cat="blog">
-        <div class="portfolio-tag">SEO Blog</div>
-        <h3>How to Resolve the Call Drop Issue? A Complete Guide</h3>
-        <p>SEO-optimized blog content driving organic traffic and user engagement for telecom audiences.</p>
-      </div>
-      <div class="portfolio-card fade-up fade-up-d1" data-cat="blog">
-        <div class="portfolio-tag">SEO Blog</div>
-        <h3>How Cloud Solutions Boost Customer Engagement in E-commerce</h3>
-        <p>In-depth article ranking for high-intent SaaS and e-commerce keywords.</p>
-      </div>
-      <div class="portfolio-card fade-up fade-up-d2" data-cat="blog">
-        <div class="portfolio-tag">SEO Blog</div>
-        <h3>Call Recording to Boost Your Customer Service Standards</h3>
-        <p>Thought-leadership content for B2B SaaS buyers researching customer support tools.</p>
-      </div>
-      <div class="portfolio-card fade-up fade-up-d3" data-cat="blog">
-        <div class="portfolio-tag">SEO Blog</div>
-        <h3>Grow Your Business with the 557 Area Code Phone Number!</h3>
-        <p>Targeted SEO article capturing local business search intent and lead generation.</p>
-      </div>
-      <div class="portfolio-card fade-up fade-up-d1" data-cat="copy">
-        <div class="portfolio-tag">Copywriting</div>
-        <h3>Surya Joti Life Insurance</h3>
-        <p>Banner &amp; website copy for one of Nepal's leading insurance providers.</p>
-      </div>
-      <div class="portfolio-card fade-up fade-up-d2" data-cat="copy">
-        <div class="portfolio-tag">Copywriting</div>
-        <h3>Better Home Appliances</h3>
-        <p>Jingles &amp; web copy for a prominent home appliance retailer in Nepal.</p>
-      </div>
-      <div class="portfolio-card fade-up fade-up-d1" data-cat="script">
-        <div class="portfolio-tag">Scriptwriting</div>
-        <h3>Saurya Cement</h3>
-        <p>Jingle &amp; ad script for a major construction materials brand.</p>
-      </div>
-      <div class="portfolio-card fade-up fade-up-d2" data-cat="script">
-        <div class="portfolio-tag">Scriptwriting</div>
-        <h3>HiFLife</h3>
-        <p>Scripts &amp; ad copy for a lifestyle brand targeting Nepal's urban demographic.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="container">
-    <div class="section-tag fade-up">Career</div>
-    <h2 class="section-title fade-up">Professional <em>journey</em></h2>
-    <p class="section-desc fade-up">Over 5 years building expertise across content, copywriting, SEO and digital marketing.</p>
-    <div class="timeline">
-      <div class="timeline-item fade-up">
-        <div class="timeline-meta">
-          <span class="timeline-company">ANS Creation</span>
-          <span class="timeline-period">Present</span>
-        </div>
-        <div class="timeline-role">Copywriter &amp; Scriptwriter</div>
-        <ul>
-          <li>Created impactful ad copies, scripts, and jingles for leading Nepali brands</li>
-          <li>Partnered with creative teams to develop innovative campaigns strengthening brand identity</li>
-          <li>Produced engaging content tailored for television, print, and digital platforms</li>
-        </ul>
-      </div>
-      <div class="timeline-item fade-up fade-up-d1">
-        <div class="timeline-meta">
-          <span class="timeline-company">Codavatar</span>
-          <span class="timeline-period">Feb – Aug 2025</span>
-        </div>
-        <div class="timeline-role">SEO Content Writer — Software Engineering Company</div>
-        <ul>
-          <li>Developed SEO-optimized content for Dialaxy working with a visionary team</li>
-          <li>Created compelling meta descriptions and title tags to increase click-through rates</li>
-          <li>Identified relevant keywords and incorporated them naturally into engaging content</li>
-          <li>Improved internal linking and site structure for better crawlability and UX</li>
-        </ul>
-      </div>
-      <div class="timeline-item fade-up fade-up-d2">
-        <div class="timeline-meta">
-          <span class="timeline-company">Nepalbytes</span>
-          <span class="timeline-period">Jan 2023 – Dec 2024</span>
-        </div>
-        <div class="timeline-role">Digital Marketing &amp; Content Writer</div>
-        <ul>
-          <li>Created SEO-optimized articles, blogs, and web content to drive organic traffic</li>
-          <li>Planned and executed digital marketing strategies including social media and SEO campaigns</li>
-          <li>Used analytics and SEO tools to track performance and improve content visibility</li>
-        </ul>
-      </div>
-      <div class="timeline-item fade-up fade-up-d3">
-        <div class="timeline-meta">
-          <span class="timeline-company">Biguls Khabar</span>
-          <span class="timeline-period">Feb 2020 – Nov 2022</span>
-        </div>
-        <div class="timeline-role">Digital Marketing &amp; Content Writer</div>
-        <ul>
-          <li>Wrote and edited SEO-optimized news articles on politics, business, and social affairs</li>
-          <li>Conducted interviews, research, and fact-checking to deliver high-quality reporting</li>
-          <li>Applied SEO strategies to increase article visibility and audience engagement</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <div class="section-tag fade-up">Capabilities</div>
-    <h2 class="section-title fade-up">Skills &amp; <em>expertise</em></h2>
-    <div class="skills-grid">
-      <div class="skill-group fade-up">
-        <h3>Core Skills</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Communication</span>
-          <span class="skill-tag">SEO Tools</span>
-          <span class="skill-tag">Content Writing</span>
-          <span class="skill-tag">Copywriting</span>
-          <span class="skill-tag">Digital Marketing</span>
-          <span class="skill-tag">Teamwork</span>
-          <span class="skill-tag">Creativity</span>
-          <span class="skill-tag">Time Management</span>
-          <span class="skill-tag">Adaptability</span>
-          <span class="skill-tag">Leadership</span>
-          <span class="skill-tag">Keyword Research</span>
-          <span class="skill-tag">Content Strategy</span>
-        </div>
-      </div>
-      <div class="skill-group fade-up fade-up-d2">
-        <h3>Languages</h3>
-        <div class="lang-list">
-          <div class="lang-item">
-            <span class="lang-name">Nepali</span>
-            <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
-            <span class="lang-level">Native</span>
-          </div>
-          <div class="lang-item">
-            <span class="lang-name">English</span>
-            <div class="lang-bar"><div class="lang-fill" style="width:90%"></div></div>
-            <span class="lang-level">Professional</span>
-          </div>
-          <div class="lang-item">
-            <span class="lang-name">Hindi</span>
-            <div class="lang-bar"><div class="lang-fill" style="width:65%"></div></div>
-            <span class="lang-level">Conversational</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- BLOG -->
-<section id="blog">
-  <div class="container">
-    <div class="section-tag fade-up">Insights</div>
-    <h2 class="section-title fade-up">From the <em>blog</em></h2>
-    <p class="section-desc fade-up">Thoughts on SEO, content strategy, and the ever-evolving digital landscape — written from the front lines of Nepal's digital industry.</p>
-    <div class="blog-grid" id="blogGrid">
-
-      <!-- Blog 1 -->
-      <div class="blog-card fade-up" onclick="openBlog(0)">
-        <div class="blog-card-header">
-          <div class="blog-cat">SEO Strategy</div>
-          <h3>5 SEO Mistakes Nepali Businesses Make (And How to Fix Them)</h3>
-        </div>
-        <div class="blog-card-body">
-          <p class="blog-excerpt">Most businesses in Nepal know they need SEO, but few understand why their efforts aren't producing results. Here are the most common pitfalls — and actionable ways out.</p>
-          <div class="blog-meta">
-            <span>Feb 10, 2026 · 6 min read</span>
-            <span class="blog-read-more">Read more →</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Blog 2 -->
-      <div class="blog-card fade-up fade-up-d1" onclick="openBlog(1)">
-        <div class="blog-card-header">
-          <div class="blog-cat">Copywriting</div>
-          <h3>The One Copywriting Formula That Works Across Every Industry</h3>
-        </div>
-        <div class="blog-card-body">
-          <p class="blog-excerpt">PAS, AIDA, FAB — there are dozens of copywriting frameworks. But one underlies them all, and once you understand it, writing persuasive copy becomes almost formulaic.</p>
-          <div class="blog-meta">
-            <span>Jan 28, 2026 · 5 min read</span>
-            <span class="blog-read-more">Read more →</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Blog 3 -->
-      <div class="blog-card fade-up fade-up-d2" onclick="openBlog(2)">
-        <div class="blog-card-header">
-          <div class="blog-cat">Content Strategy</div>
-          <h3>Why Your Blog Gets Traffic But Zero Conversions</h3>
-        </div>
-        <div class="blog-card-body">
-          <p class="blog-excerpt">Getting organic traffic is a victory — but if those visitors aren't converting, something is broken in your content funnel. Here's how to diagnose and fix the gap.</p>
-          <div class="blog-meta">
-            <span>Jan 15, 2026 · 7 min read</span>
-            <span class="blog-read-more">Read more →</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Blog 4 -->
-      <div class="blog-card fade-up fade-up-d1" onclick="openBlog(3)">
-        <div class="blog-card-header">
-          <div class="blog-cat">Scriptwriting</div>
-          <h3>How to Write a TV Ad Script That People Remember</h3>
-        </div>
-        <div class="blog-card-body">
-          <p class="blog-excerpt">The average viewer sees hundreds of ads a week and remembers almost none of them. Here's what separates forgettable spots from the ones that actually stick.</p>
-          <div class="blog-meta">
-            <span>Dec 22, 2025 · 4 min read</span>
-            <span class="blog-read-more">Read more →</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Blog 5 -->
-      <div class="blog-card fade-up fade-up-d2" onclick="openBlog(4)">
-        <div class="blog-card-header">
-          <div class="blog-cat">Digital Marketing</div>
-          <h3>Nepal's Digital Marketing Landscape in 2026: What's Changed</h3>
-        </div>
-        <div class="blog-card-body">
-          <p class="blog-excerpt">Nepal's internet penetration has grown rapidly, social media habits have shifted, and Google keeps updating its algorithms. Here's how marketers need to adapt right now.</p>
-          <div class="blog-meta">
-            <span>Dec 5, 2025 · 8 min read</span>
-            <span class="blog-read-more">Read more →</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Blog 6 -->
-      <div class="blog-card fade-up fade-up-d3" onclick="openBlog(5)">
-        <div class="blog-card-header">
-          <div class="blog-cat">Keyword Research</div>
-          <h3>Keyword Research for Nepali Audiences: A Practical Guide</h3>
-        </div>
-        <div class="blog-card-body">
-          <p class="blog-excerpt">Global SEO tools weren't built with Nepal in mind. Here's how to do effective keyword research for local Nepali audiences using a mix of free tools and on-the-ground insight.</p>
-          <div class="blog-meta">
-            <span>Nov 18, 2025 · 6 min read</span>
-            <span class="blog-read-more">Read more →</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- BLOG MODAL -->
-<div class="blog-modal-overlay" id="blogModal">
-  <div class="blog-modal">
-    <button class="blog-modal-close" onclick="closeBlog()">✕</button>
-    <div class="blog-modal-header">
-      <div class="blog-cat" id="modalCat"></div>
-      <h2 id="modalTitle"></h2>
-      <div class="blog-modal-date" id="modalDate"></div>
-    </div>
-    <div class="blog-modal-body" id="modalBody"></div>
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="section-tag fade-up">Get In Touch</div>
-    <h2 class="section-title fade-up">Let's build something <em>remarkable</em></h2>
-    <p class="section-desc fade-up">Ready to elevate your content strategy? I craft content that doesn't just rank — it resonates and converts.</p>
-    <div class="contact-grid">
-      <div class="contact-items">
-        <a href="tel:+9779845047704" class="contact-item fade-up">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-            </svg>
-          </div>
-          <div>
-            <div class="contact-item-label">Phone / WhatsApp</div>
-            <div class="contact-item-value">+977 98450 47704</div>
-          </div>
-        </a>
-        <a href="mailto:bimalshrestha2004@gmail.com" class="contact-item fade-up fade-up-d1">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-          </div>
-          <div>
-            <div class="contact-item-label">Email</div>
-            <div class="contact-item-value">bimalshrestha2004@gmail.com</div>
-          </div>
-        </a>
-        <a href="https://maps.google.com/?q=Kalopul,Kathmandu" target="_blank" class="contact-item fade-up fade-up-d2">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-          </div>
-          <div>
-            <div class="contact-item-label">Location</div>
-            <div class="contact-item-value">Kalopul, Kathmandu, Nepal</div>
-          </div>
-        </a>
-      </div>
-      <div class="contact-cta-box fade-up fade-up-d2">
-        <h3>Ready to start a project?</h3>
-        <p>Whether it's a long-term content partnership or a one-off campaign, I'd love to hear about what you're building. Let's talk.</p>
-        <a href="mailto:bimalshrestha2004@gmail.com" class="btn-gold">Send Me a Message →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 <span>Bimal Shrestha</span>. All rights reserved. · Crafting content that ranks, engages, and converts.</p>
-</footer>
-
-<script>
-  // ── HAMBURGER MENU ──
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-  });
-  function closeMobileMenu() {
-    hamburger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-  }
-
-  // ── SCROLL ANIMATIONS ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('visible'); }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // ── PORTFOLIO FILTER ──
-  function filterPortfolio(cat, btn) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('#portfolioGrid .portfolio-card').forEach(card => {
-      if (cat === 'all' || card.dataset.cat === cat) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
+      .about-stats { 
+        grid-template-columns: 1fr; 
       }
-    });
-  }
-
-  // ── BLOG DATA ──
-  const blogs = [
-    {
-      cat: 'SEO Strategy',
-      title: '5 SEO Mistakes Nepali Businesses Make (And How to Fix Them)',
-      date: 'February 10, 2026 · 6 min read',
-      body: `
-        <p>After 5 years working in Nepal's digital landscape, I've seen the same mistakes repeated across industries — from growing e-commerce startups to established brick-and-mortar businesses trying to find their footing online. Most businesses <em>know</em> they need SEO. Few understand why their efforts aren't producing results.</p>
-        <p>Here are the five most common culprits, and what you can actually do about them.</p>
-        <h3>1. Targeting Keywords With No Local Intent</h3>
-        <p>A travel company in Kathmandu trying to rank for "Nepal trekking" is fighting against global giants like Lonely Planet and National Geographic. The fix? Go hyper-local. "Langtang trekking packages from Kathmandu" or "budget trek Annapurna 2026" are longer but far more winnable — and the people searching them are ready to book.</p>
-        <h3>2. Ignoring Nepali-Language Content</h3>
-        <p>A massive portion of Nepal's internet users consume content in Nepali, yet almost every business produces content exclusively in English. Creating even 30% of your content in Nepali can open an enormous, underserved audience. Google's Nepali indexing has improved significantly — the opportunity is real.</p>
-        <h3>3. Skipping the Meta Basics</h3>
-        <p>I routinely audit websites where every single page has the same title tag and meta description — or worse, none at all. These are not "nice to haves." They're your storefront sign on Google's results page. Each page needs a unique, compelling title under 60 characters and a description that sells the click.</p>
-        <h3>4. Building Backlinks Without Building Relationships</h3>
-        <p>Many Nepali businesses buy cheap backlink packages from overseas, which can actively harm rankings. Instead, focus on earning mentions from legitimate Nepali news outlets, industry directories, and partner websites. One quality link from Setopati or Onlinekhabar is worth a hundred spammy directory submissions.</p>
-        <h3>5. Publishing Without a Content Calendar</h3>
-        <p>Consistency is an SEO signal. A business that publishes 10 blogs in January and nothing for the next three months sends confused signals to search engines. A simple editorial calendar — even just one post per week — builds topical authority over time. Commit to the cadence and protect it.</p>
-        <p>The good news? None of these are technical mysteries. They're strategic choices, and most can be fixed with clear thinking and consistent effort. If any of these sound familiar, start with whichever is easiest to fix — progress builds momentum.</p>
-      `
-    },
-    {
-      cat: 'Copywriting',
-      title: 'The One Copywriting Formula That Works Across Every Industry',
-      date: 'January 28, 2026 · 5 min read',
-      body: `
-        <p>Copywriters love frameworks. PAS (Problem–Agitate–Solution). AIDA (Attention–Interest–Desire–Action). FAB (Features–Advantages–Benefits). There are entire books dedicated to each of these, and they all work. But beneath every one of them lies a single, universal principle: <strong>meet the reader where they already are.</strong></p>
-        <h3>The Core Formula: Empathy → Evidence → Invitation</h3>
-        <p>Your reader arrives with a state of mind. They're frustrated, curious, hopeful, skeptical. Great copy names that state of mind back to them before doing anything else — not to be manipulative, but because being understood is the precondition for being trusted.</p>
-        <p>Once trust is established, you need evidence. Not just claims, but specific proof: numbers, case studies, named results. "We improved traffic" is nothing. "We increased organic traffic by 340% in 90 days for a Kathmandu-based fintech startup" is something a reader can visualize and believe.</p>
-        <p>Finally, the invitation — the call to action. Most copy fails here not because the offer is bad, but because the invitation is generic. "Contact us" is weak. "Book your free 30-minute content audit" is specific, low-friction, and outcome-focused.</p>
-        <h3>Why This Works Across Every Industry</h3>
-        <p>I've written copy for insurance companies, cement brands, SaaS platforms, and lifestyle blogs. The industries could not be more different. But every audience responds to the same underlying sequence: feel understood, then given proof, then offered a clear next step.</p>
-        <p>The language changes. The evidence changes. The emotional temperature changes. But the architecture doesn't. Start applying this three-part lens to everything you write and watch your conversion rates climb.</p>
-      `
-    },
-    {
-      cat: 'Content Strategy',
-      title: 'Why Your Blog Gets Traffic But Zero Conversions',
-      date: 'January 15, 2026 · 7 min read',
-      body: `
-        <p>You've done the work. The keyword research, the quality writing, the on-page optimization. Google is sending you traffic. But then... nothing. No signups, no enquiries, no sales. This is one of the most frustrating positions in content marketing — and it's more common than you'd think.</p>
-        <h3>The Problem: Ranking ≠ Converting</h3>
-        <p>Most SEO content is designed to rank, not to convert. These are genuinely different goals that require different writing strategies. Ranking content satisfies search intent and earns Google's trust. Converting content creates psychological momentum toward a specific action. When you optimize purely for rankings, you often sacrifice the elements that drive conversions — urgency, specificity, social proof, and clear calls to action.</p>
-        <h3>The Intent Mismatch</h3>
-        <p>Informational content attracts informational intent. If someone searches "what is SEO" and lands on your blog, they're in research mode — not buying mode. Expecting them to immediately purchase your SEO services is like proposing on a first date. The fix isn't to stop creating informational content; it's to architect a journey from informational to transactional. Internal links, content upgrades, and email capture forms help move readers along that path.</p>
-        <h3>Missing Micro-Conversions</h3>
-        <p>Not every visitor is ready to buy — and that's fine. But are you capturing the ones who are interested but not ready? A newsletter subscription, a downloadable guide, or a free consultation offer gives readers a low-risk next step that keeps them in your orbit. Build for micro-conversions and macro-conversions will follow.</p>
-        <h3>Weak or Absent CTAs</h3>
-        <p>I audit blogs every week that simply end. The article finishes and there is... nothing. No call to action, no related content, no email sign-up. The reader leaves because you haven't given them a reason to stay. Every piece of content needs at least one clear next step — ideally one aligned with the reader's stage in the buying journey.</p>
-        <p>Traffic without conversion is a gap in strategy, not a sign that content doesn't work. Map your reader's journey, align your content to their intent, and build bridges between their curiosity and your offer.</p>
-      `
-    },
-    {
-      cat: 'Scriptwriting',
-      title: 'How to Write a TV Ad Script That People Remember',
-      date: 'December 22, 2025 · 4 min read',
-      body: `
-        <p>Nepal's television advertising landscape is evolving rapidly. With audiences becoming more media-literate and attention spans shortening, the bar for what makes a memorable TV ad has never been higher. Here's what I've learned writing scripts for brands like Saurya Cement and Surya Joti.</p>
-        <h3>Start With the Feeling, Not the Product</h3>
-        <p>The most common mistake in TV ad scripts is starting with the product. "Saurya Cement is strong, durable, and trusted by thousands of Nepali families..." — this is the ad version of talking about yourself on a first date. Start instead with the feeling the audience wants: security, pride, belonging, aspiration. Then show how the product delivers that feeling.</p>
-        <h3>The 5-Second Hook is Everything</h3>
-        <p>Viewers decide within the first five seconds whether to pay attention to an ad or mentally check out. Your opening must be visually arresting, emotionally intriguing, or narratively incomplete enough to demand resolution. A surprising image, an unfinished sentence, or an unexpected sound design choice can all serve this function.</p>
-        <h3>One Message Per Ad</h3>
-        <p>A 30-second ad cannot communicate five things. It can barely communicate one. The discipline of scriptwriting is the discipline of ruthless prioritization: what is the single thing you need this audience to feel, believe, or remember? Write toward that and cut everything else.</p>
-        <h3>Write for the Ear, Not the Eye</h3>
-        <p>TV scripts are heard before they are seen. Read your script aloud — repeatedly. The rhythm, the pauses, the natural breath points — these matter as much as the words themselves. If a line feels awkward to say, it will sound awkward on screen. Trust your ear as much as your eye when editing.</p>
-      `
-    },
-    {
-      cat: 'Digital Marketing',
-      title: 'Nepal's Digital Marketing Landscape in 2026: What's Changed',
-      date: 'December 5, 2025 · 8 min read',
-      body: `
-        <p>Nepal's digital ecosystem has transformed significantly over the past three years. Internet penetration now exceeds 70%, smartphone adoption in rural areas has accelerated, and platforms like TikTok have emerged as genuine marketing channels. Here's what marketers need to know going into 2026.</p>
-        <h3>Search Behaviour Has Shifted</h3>
-        <p>Nepali users are increasingly searching in Nepali-language queries, especially on mobile. Voice search is growing, and with it comes conversational, long-tail keyword behavior. Marketers optimizing only for English keywords are leaving significant organic traffic on the table.</p>
-        <h3>TikTok and Short-Form Video Are Now Essential</h3>
-        <p>Two years ago, TikTok was considered optional for Nepali brands. Today, it's a primary discovery channel for audiences under 35 — which is a majority of Nepal's consumer market. Brands that haven't developed a short-form video content strategy are simply invisible to a generation of buyers.</p>
-        <h3>AI-Generated Content Requires Human Editing</h3>
-        <p>The rise of AI writing tools has flooded search results with low-quality, homogenous content. This is paradoxically an opportunity for brands that invest in genuine expertise, local perspective, and authentic voice. Google's helpful content system increasingly rewards original, human-centered writing — exactly what Nepal's market needs more of.</p>
-        <h3>WhatsApp Business as a Conversion Channel</h3>
-        <p>WhatsApp is Nepal's dominant messaging platform. Forward-thinking businesses are now treating WhatsApp Business not just as a customer service tool but as a full conversion channel — running drip campaigns, sharing product catalogs, and closing sales directly in chat. This is an underutilized channel with exceptional conversion potential.</p>
-        <p>The brands winning in Nepal's digital space in 2026 are those who combine global best practices with local cultural intelligence. That intersection is where the best digital marketing happens.</p>
-      `
-    },
-    {
-      cat: 'Keyword Research',
-      title: 'Keyword Research for Nepali Audiences: A Practical Guide',
-      date: 'November 18, 2025 · 6 min read',
-      body: `
-        <p>If you've tried using Google Keyword Planner or Ahrefs to research keywords for a Nepali audience, you've likely run into the same frustration: the data is thin, the search volume estimates are unreliable, and the tool clearly wasn't built with Nepal in mind. Here's how to do it properly.</p>
-        <h3>Start With Google's Autocomplete and Related Searches</h3>
-        <p>Google Autocomplete is trained on real user behavior — and it works for Nepali queries. Type your seed keyword into Google Nepal (preferably from a Nepali IP), look at the autocomplete suggestions and the "People also ask" and "Related searches" sections. These are goldmines of actual search behavior that no third-party tool can replicate.</p>
-        <h3>Use Google Search Console for Existing Traffic Data</h3>
-        <p>If your site has any existing traffic, Google Search Console is your most valuable keyword research tool. The queries report shows exactly what terms people are using to find you — and crucially, which terms are generating impressions but few clicks (indicating ranking potential you haven't converted yet).</p>
-        <h3>Research Nepali-Language Keywords Separately</h3>
-        <p>Don't assume that Nepali-language versions of your English keywords behave the same way. They often don't. Search behavior in Nepali can be more localized, more practical, and more transactional than the English equivalent. Build two parallel keyword lists: one in English, one in Nepali, and treat them as separate research projects.</p>
-        <h3>Analyze Local News and Forums</h3>
-        <p>Sites like Setopati, Onlinekhabar, and local Facebook groups are excellent indicators of what topics your target audience is currently discussing and searching. If a topic is being heavily discussed in local media, there's almost certainly search demand around it too.</p>
-        <h3>Validate With Small Paid Campaigns</h3>
-        <p>When in doubt, run a small Google Ads campaign targeting your shortlisted keywords. Even a modest NPR 5,000 campaign will generate real impression and click data that you can use to validate organic keyword targeting. It's the fastest way to confirm whether a keyword has real commercial intent in the Nepali market.</p>
-      `
+      .timeline { 
+        padding-left: 20px; 
+      }
+      .timeline-item::before { 
+        left: -26px; 
+      }
+      .lang-item {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .lang-bar {
+        order: 3;
+        width: 100%;
+        margin: 8px 0 0;
+      }
+      .lang-level {
+        text-align: left;
+      }
     }
-  ];
 
-  function openBlog(i) {
-    const b = blogs[i];
-    document.getElementById('modalCat').textContent = b.cat;
-    document.getElementById('modalTitle').textContent = b.title;
-    document.getElementById('modalDate').textContent = b.date;
-    document.getElementById('modalBody').innerHTML = b.body;
-    document.getElementById('blogModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeBlog() {
-    document.getElementById('blogModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  document.getElementById('blogModal').addEventListener('click', function(e) {
-    if (e.target === this) closeBlog();
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeBlog();
-  });
-</script>
-</body>
-</html>
+    /* Accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 8px;
+      z-index: 10000;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    :focus-visible {
+      outline: 2px solid
